@@ -1,0 +1,11 @@
+:root {
+  --font-color: #fff;
+  --pink-light: #e94988;
+  --pink-dark: #df4782;
+  --pink-prime: #ec4c8a;
+}
+
+body {
+  background-color: var(--pink-prime);
+  color: var(--font-color);
+}
