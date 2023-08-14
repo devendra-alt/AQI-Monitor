@@ -4,8 +4,3 @@
   --pink-dark: #df4782;
   --pink-prime: #ec4c8a;
 }
-
-body {
-  background-color: var(--pink-prime);
-  color: var(--font-color);
-}
