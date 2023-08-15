@@ -32,13 +32,13 @@ function City({ city, country, population }) {
 City.defaultProps = {
   city: 'no data',
   country: 'no data',
-  population: 'no data',
+  population: 0,
 };
 
 City.propTypes = {
-  city: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
-  population: PropTypes.number.isRequired,
+  city: PropTypes.string,
+  country: PropTypes.string,
+  population: PropTypes.number,
 };
 
 export default City;
