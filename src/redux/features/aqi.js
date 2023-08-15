@@ -6,12 +6,10 @@ const API_KEY = '6a94543e03e99aa16676be688ff283c1';
 export const fetchAqiData = createAsyncThunk(
   'aqi/fetchAqiData',
   async ({ lat, lon }, { rejectWithValue }) => {
-    console.log(lat, lon);
     try {
       const respond = await axios(
         `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
       );
-      console.log(respond);
       return respond.data;
     } catch (error) {
       throw rejectWithValue(error);

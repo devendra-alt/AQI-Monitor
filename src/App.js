@@ -33,7 +33,7 @@ function App() {
       lon: 77.23,
     };
     dispath(fetchAqiData(obj));
-  }, []);
+  }, [dispath]);
   return <RouterProvider router={router} />;
 }
 
