@@ -24,8 +24,8 @@ const router = createBrowserRouter([
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispah(fetchCitys());
-  }, [dispath]);
+    dispatch(fetchCitys());
+  }, [dispatch]);
   return <RouterProvider router={router} />;
 }
 

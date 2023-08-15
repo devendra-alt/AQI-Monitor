@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
+import { BallTriangle } from 'react-loader-spinner';
 import Header from './Header';
 import City from './City';
 
 const Home = () => {
   let sortedCity = [];
-  const { cityList } = useSelector((state) => state.citys);
+  const { cityList, loading } = useSelector((state) => state.citys);
   const [searchKey, setSearchKey] = useState('');
 
   function handleSearch(event) {
@@ -27,18 +28,33 @@ const Home = () => {
     <>
       <Header title="AQI monitor" />
       <section className="citys-state-section">
-        <input
-          type="text"
-          name="city"
-          id="city"
-          className="seach-city-i"
-          placeholder="Search any city"
-          onChange={handleSearch}
-        />
-        {sortedCity.length > 0 ? (
-          <ul className="city-list">{sortedCity}</ul>
+        {loading === 'fulfilled' ? (
+          <>
+            <input
+              type="text"
+              name="city"
+              id="city"
+              className="seach-city-i"
+              placeholder="Search any city"
+              onChange={handleSearch}
+            />
+            {sortedCity.length > 0 ? (
+              <ul className="city-list">{sortedCity}</ul>
+            ) : (
+              <h5 className="no-city-found-msg">No City Found</h5>
+            )}
+          </>
         ) : (
-          <h5 className="no-city-found-msg">No City Found</h5>
+          <BallTriangle
+            height={100}
+            width={100}
+            radius={5}
+            color="#fff"
+            ariaLabel="ball-triangle-loading"
+            wrapperClass={{}}
+            wrapperStyle=""
+            visible
+          />
         )}
       </section>
     </>

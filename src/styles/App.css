@@ -43,6 +43,7 @@
 .city-list {
   background: var(--pink-light);
   display: grid;
+
   /* grid-template-columns: repeat(2, auto); */
 }
 
