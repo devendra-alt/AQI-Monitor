@@ -15,15 +15,8 @@ const Home = () => {
 
   sortedCity = cityList
     .filter((data) => data.city.toLowerCase().includes(searchKey))
-    .map((cityData) => (
-      <City
-        key={cityData.id}
-        city={cityData.city}
-        country={cityData.country}
-        population={cityData.population}
-      />
-    ));
-
+    .map((cityData) => <City key={cityData.id} cityData={cityData} />)
+    .sort((a, b) => (a.population > b.population ? -1 : 1));
   return (
     <>
       <Header title="AQI monitor" />
