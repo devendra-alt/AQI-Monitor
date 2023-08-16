@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import settings from '../assets/settings.svg';
 import back from '../assets/back.svg';
 
@@ -8,7 +9,7 @@ function Header({ title }) {
     <header className="main-header">
       <div className="main-left-back-area">
         {title !== 'AQI monitor' && (
-          <button className="back-btn btn" type="button">
+          <Link className="back-btn btn" type="button" to="/">
             <img
               src={back}
               width="20px"
@@ -16,7 +17,7 @@ function Header({ title }) {
               alt="back icon"
               className="back-img"
             />
-          </button>
+          </Link>
         )}
       </div>
       <h1 className="main-title">{title}</h1>
