@@ -45,16 +45,17 @@ const Home = () => {
             )}
           </>
         ) : (
-          <BallTriangle
-            height={100}
-            width={100}
-            radius={5}
-            color="#fff"
-            ariaLabel="ball-triangle-loading"
-            wrapperClass={{}}
-            wrapperStyle=""
-            visible
-          />
+          <article className="ball-triangle-loading">
+            <BallTriangle
+              height={100}
+              width={100}
+              radius={5}
+              color="#fff"
+              ariaLabel="ball-triangle-loading"
+              className="ball-triangle-loading"
+              visible
+            />
+          </article>
         )}
       </section>
     </>
