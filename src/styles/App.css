@@ -150,6 +150,10 @@ span {
   background-color: var(--pink-dark);
 }
 
+.general-city-aqi-point > img {
+  display: none;
+}
+
 @media screen and (min-width: 764px) {
   .city-list {
     grid-template-columns: repeat(5, 1fr);
@@ -181,5 +185,9 @@ span {
   .aqi-data-table > tbody > tr > td {
     padding: 0.1rem;
     font-size: 1.5rem;
+  }
+  .general-city-aqi-point > img {
+    display: inline;
+    margin-left: 0.5rem;
   }
 }
