@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAqiData } from '../redux/features/aqi';
 import Header from './Header';
+import happy from '../assets/happy.svg';
+import sad from '../assets/sad.svg';
 
 function CityDetails() {
   const location = useLocation();
@@ -27,6 +29,15 @@ function CityDetails() {
           {Object.keys(aqiData).length !== 0 ? (
             <div className="general-city-info">
               <div className="general-city-info-data">
+                <p className="general-city-aqi-point">
+                  {aqiData.list[0].main.aqi}
+                  {aqiData.list[0].main.aqi > 2 ? (
+                    <img src={sad} alt="sad-emoji" width="20px" />
+                  ) : (
+                    <img src={happy} alt="happy-emoji" width="20px" />
+                  )}
+                  <span>AQI</span>
+                </p>
                 <p className="general-city-name">
                   {cityData.city}
                   <span>City</span>
@@ -34,10 +45,6 @@ function CityDetails() {
                 <p className="general-city-country">
                   {cityData.country}
                   <span>Country</span>
-                </p>
-                <p className="general-city-aqi-point">
-                  {aqiData.list[0].main.aqi}
-                  <span>AQI</span>
                 </p>
                 <p className="general-city-population">
                   {millify(cityData.population)}
