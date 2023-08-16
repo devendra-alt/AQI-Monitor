@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { fetchCitys } from './redux/features/citys';
 import Home from './components/Home';
 import Country from './components/Country';
-import City from './components/City';
-import { fetchCitys } from './redux/features/citys';
+import CityDetails from './components/CityDetails';
 
 const router = createBrowserRouter([
   {
@@ -16,8 +16,8 @@ const router = createBrowserRouter([
     element: <Country />,
   },
   {
-    path: '/City',
-    element: <City />,
+    path: '/city',
+    element: <CityDetails />,
   },
 ]);
 

@@ -1,14 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_KEY = '6a94543e03e99aa16676be688ff283c1';
-
 export const fetchAqiData = createAsyncThunk(
   'aqi/fetchAqiData',
   async ({ lat, lon }, { rejectWithValue }) => {
     try {
       const respond = await axios(
-        `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+        `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=6a94543e03e99aa16676be688ff283c1`
       );
       return respond.data;
     } catch (error) {

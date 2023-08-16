@@ -15,15 +15,8 @@ const Home = () => {
 
   sortedCity = cityList
     .filter((data) => data.city.toLowerCase().includes(searchKey))
-    .map((cityData) => (
-      <City
-        key={cityData.id}
-        city={cityData.city}
-        country={cityData.country}
-        population={cityData.population}
-      />
-    ));
-
+    .map((cityData) => <City key={cityData.id} cityData={cityData} />)
+    .sort((a, b) => (a.population > b.population ? -1 : 1));
   return (
     <>
       <Header title="AQI monitor" />
@@ -45,16 +38,17 @@ const Home = () => {
             )}
           </>
         ) : (
-          <BallTriangle
-            height={100}
-            width={100}
-            radius={5}
-            color="#fff"
-            ariaLabel="ball-triangle-loading"
-            wrapperClass={{}}
-            wrapperStyle=""
-            visible
-          />
+          <article className="ball-triangle-loading">
+            <BallTriangle
+              height={100}
+              width={100}
+              radius={5}
+              color="#fff"
+              ariaLabel="ball-triangle-loading"
+              className="ball-triangle-loading"
+              visible
+            />
+          </article>
         )}
       </section>
     </>
