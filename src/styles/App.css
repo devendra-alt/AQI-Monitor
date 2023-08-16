@@ -118,6 +118,7 @@ span {
   line-height: 0.7;
   padding-bottom: 2rem;
 }
+
 .general-city-info-data > p > span::before {
   content: '\a';
   white-space: pre;
@@ -142,9 +143,6 @@ span {
 .aqi-data-table > tbody > tr > td {
   text-align: left;
   font-size: 1.5rem;
-}
-
-.aqi-data-table > tbody > tr > td {
   width: 50%;
 }
 
@@ -156,10 +154,12 @@ span {
   .city-list {
     grid-template-columns: repeat(5, 1fr);
   }
+
   .city-list-item {
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: 1fr;
   }
+
   .general-city-info {
     width: 60%;
     margin: 0 auto;
@@ -173,9 +173,11 @@ span {
     font-size: 2.5rem;
     text-align: left;
   }
+
   .aqi-data-title {
     font-size: 1.5rem;
   }
+
   .aqi-data-table > tbody > tr > td {
     padding: 0.1rem;
     font-size: 1.5rem;
