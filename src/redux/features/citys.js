@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 export const fetchCitys = createAsyncThunk(
   'citys/fetchCitys',
   async (_, { rejectWithValue }) => {
     try {
-      const respond = await axios(
+      const respond = await fetch(
         'https://json.extendsclass.com/bin/d8d76772e5e0'
       );
-      return respond.data;
+      const data = await respond.json();
+      return data;
     } catch (error) {
       throw rejectWithValue(error);
     }
