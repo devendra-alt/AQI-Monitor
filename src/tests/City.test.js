@@ -4,7 +4,8 @@ import {
   fireEvent,
   render,
   waitForElementToBeRemoved,
-  screen
+  screen,
+  waitFor,
 } from '@testing-library/react';
 import store from '../redux/store';
 import App from '../App';
@@ -18,10 +19,16 @@ describe('should test city details page', () => {
     );
   });
   it('should render city details page', async () => {
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('ball-triangle-loading'));
+    await waitFor(() => {
+      const loading = screen.queryByLabelText('ball-triangle-loading');
+      expect(loading).toBeNull();
+    });
     const cityDetailsBtn = screen.queryByTestId('1458988644');
     fireEvent.click(cityDetailsBtn);
-    await waitForElementToBeRemoved(() => screen.queryByLabelText('ball-triangle-loading'));
+    await waitFor(() => {
+      const loading = screen.queryByLabelText('ball-triangle-loading');
+      expect(loading).toBeNull();
+    });
     expect(screen.queryByLabelText('city-name')).toBeInTheDocument();
   });
 });
