@@ -38,7 +38,7 @@ function CityDetails() {
                   )}
                   <span>AQI</span>
                 </p>
-                <p className="general-city-name">
+                <p className="general-city-name" aria-label="city-name">
                   {cityData.city}
                   <span>City</span>
                 </p>

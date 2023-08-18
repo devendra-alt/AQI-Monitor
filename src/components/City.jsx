@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import right from '../assets/right.svg';
 
 const City = ({ cityData }) => (
-  <li className="city-list-item">
+  <li className="city-list-item" aria-label="city">
     <p className="city-name">
       {cityData.city}
       <br />
@@ -21,7 +21,13 @@ const City = ({ cityData }) => (
       <br />
       <span>Population</span>
     </p>
-    <Link className="see-more" type="button" to="/city" state={{ cityData }}>
+    <Link
+      className="see-more"
+      type="button"
+      to="/city"
+      state={{ cityData }}
+      data-testid={cityData.id}
+    >
       See AQI
       <img src={right} width="20px" height="20px" alt="right arrow" />
     </Link>
@@ -39,6 +45,7 @@ City.propTypes = {
     population: PropTypes.number,
     lat: PropTypes.number,
     lng: PropTypes.number,
+    id: PropTypes.number,
   }),
 };
 
