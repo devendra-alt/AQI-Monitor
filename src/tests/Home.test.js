@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
-import { fireEvent, render, waitFor, screen } from '@testing-library/react';
+import {
+  fireEvent, render, waitFor, screen
+} from '@testing-library/react';
 import store from '../redux/store';
 import App from '../App';
 

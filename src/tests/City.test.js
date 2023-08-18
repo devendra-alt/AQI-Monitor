@@ -1,11 +1,7 @@
 import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
 import {
-  fireEvent,
-  render,
-  waitForElementToBeRemoved,
-  screen,
-  waitFor,
+  fireEvent, render, screen, waitFor
 } from '@testing-library/react';
 import store from '../redux/store';
 import App from '../App';
