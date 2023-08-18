@@ -5,7 +5,7 @@ export const fetchAqiData = createAsyncThunk(
   async ({ lat, lon }, { rejectWithValue }) => {
     try {
       const respond = await fetch(
-        `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=6a94543e03e99aa16676be688ff283c1`
+        `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=6a94543e03e99aa16676be688ff283c1`
       );
       const data = respond.json();
       return data;
