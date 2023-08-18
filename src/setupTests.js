@@ -4,16 +4,16 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 
-import server from './tests/__mocks__/server.js';
+import server from './tests/__mocks__/server';
 
 beforeAll(() => server.listen());
 
 afterEach(() => server.resetHandlers());
 
 afterAll(() => server.close());
+/* eslint-disable */
 
 const originalError = console.error;
-/* eslint-disable */
 
 beforeAll(() => {
   console.error = (...args) => {
