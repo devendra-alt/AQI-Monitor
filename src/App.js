@@ -3,17 +3,12 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchCitys } from './redux/features/citys';
 import Home from './components/Home';
-import Country from './components/Country';
 import CityDetails from './components/CityDetails';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
-  },
-  {
-    path: '/Country',
-    element: <Country />,
   },
   {
     path: '/city',
