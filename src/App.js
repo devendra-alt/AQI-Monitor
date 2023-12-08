@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import Home from './components/Home';
-import Country from './components/Country';
-import City from './components/City';
-import { fetchCountries } from './redux/features/countries';
 import { fetchCitys } from './redux/features/citys';
-import { fetchAqiData } from './redux/features/aqi';
+import Home from './components/Home';
+import CityDetails from './components/CityDetails';
 
 const router = createBrowserRouter([
   {
@@ -14,26 +11,16 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: '/Country',
-    element: <Country />,
-  },
-  {
-    path: '/City',
-    element: <City />,
+    path: '/city',
+    element: <CityDetails />,
   },
 ]);
 
 function App() {
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispath(fetchCountries());
-    dispath(fetchCitys());
-    const obj = {
-      lat: 28.61,
-      lon: 77.23,
-    };
-    dispath(fetchAqiData(obj));
-  }, [dispath]);
+    dispatch(fetchCitys());
+  }, [dispatch]);
   return <RouterProvider router={router} />;
 }
 

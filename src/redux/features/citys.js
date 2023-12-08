@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 export const fetchCitys = createAsyncThunk(
   'citys/fetchCitys',
   async (_, { rejectWithValue }) => {
     try {
-      const respond = await axios(
+      const respond = await fetch(
         'https://json.extendsclass.com/bin/d8d76772e5e0'
       );
-      return respond.data;
+      const data = await respond.json();
+      return data;
     } catch (error) {
       throw rejectWithValue(error);
     }
@@ -16,7 +16,7 @@ export const fetchCitys = createAsyncThunk(
 );
 
 const initialState = {
-  citysList: [],
+  cityList: [],
   loading: 'idle',
   error: null,
 };
@@ -24,7 +24,6 @@ const initialState = {
 export const citysSlice = createSlice({
   name: 'citys',
   initialState,
-  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchCitys.pending, (state) => {
@@ -32,7 +31,7 @@ export const citysSlice = createSlice({
       })
       .addCase(fetchCitys.fulfilled, (state, action) => {
         state.loading = 'fulfilled';
-        state.citysList = action.payload;
+        state.cityList = action.payload;
       })
       .addCase(fetchCitys.rejected, (state, action) => {
         state.loading = 'failed';
